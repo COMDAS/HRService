@@ -1,0 +1,37 @@
+project:
+  name: human resource Service
+  description: human resource service
+
+banner:
+  location: classpath:banner.txt
+
+server:
+  port: 8080
+  context-path: /hr
+  tomcat:
+    accesslog:
+      enabled: true
+      pattern: "%A %h %l %u %t '%r' %s %b %D"
+    basedir: tomcat
+
+spring:
+  jmx:
+    enabled: true
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+  datasource:
+    driver: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hr
+    username: root
+    password: root
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  hibernate:
+    show_sql: true
+    hbm2ddl:
+      auto: create
+    dialect: org.hibernate.dialect.MySQL5Dialect
+    format_sql: true
+    ejb:
+      naming_strategy:
